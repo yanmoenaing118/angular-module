@@ -1,6 +1,6 @@
-<form class="p-5 shadow-md" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <h3 class="font-bold text-lg">Profile Information</h3>
-  <div class="mt-5">
+<form class="p-3 shadow-md" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <h3 class="font-bold text-lg">Profile Information - <span class="uppercase text-blue-500">Form status: {{profileForm.status}}</span></h3>
+  <div class="mt-2">
     <label for="firstName">First Name </label>
     <input
       type="text"
@@ -10,7 +10,7 @@
     />
   </div>
 
-  <div class="mt-5">
+  <div class="mt-2">
     <label for="lastName">Last Name </label>
     <input
       type="text"
@@ -20,7 +20,7 @@
     />
   </div>
 
-  <div class="mt-5" formGroupName="address">
+  <div class="mt-2" formGroupName="address">
     <h4 class="py-3 font-bold uppercase">Address</h4>
     <div class="mt-4">
       <label for="street">Street </label>
@@ -66,12 +66,12 @@
   <div class="flex gap-2 align-middle">
     <button
     type="submit"
-    class="mt-5 bg-indigo-500 px-4 py-2 text-slate-50 rounded"
+    class="mt-2 bg-indigo-500 px-4 py-2 text-slate-50 rounded disabled:bg-slate-300 disabled:cursor-not-allowed"
     [disabled]="!profileForm.valid"
   >
     Submit
   </button>
-  <button (click)="updateControlValue()" class="mt-5 bg-green-500 px-4 py-2 text-slate-50 rounded">Reset Defaults</button>
+  <button (click)="updateControlValue()" class="mt-2 bg-green-500 px-4 py-2 text-slate-50 rounded">Reset Defaults</button>
   </div>
 </form>
 <p>{{profileForm.value| json}}</p>

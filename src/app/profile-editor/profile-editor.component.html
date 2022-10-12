@@ -20,11 +20,58 @@
     />
   </div>
 
-  <button
+  <div class="mt-5" formGroupName="address">
+    <h4 class="py-3 font-bold uppercase">Address</h4>
+    <div class="mt-4">
+      <label for="street">Street </label>
+      <input
+        type="text"
+        id="street"
+        class="w-full border rounded p-2"
+        formControlName="street"
+      />
+    </div>
+
+    <div class="mt-4">
+      <label for="city">City </label>
+      <input
+        type="text"
+        class="w-full border rounded p-2"
+        id="city"
+        formControlName="city"
+      />
+    </div>
+
+    <div class="mt-4">
+      <label for="State">State </label>
+      <input
+        type="text"
+        class="w-full border rounded p-2"
+        id="State"
+        formControlName="state"
+      />
+    </div>
+
+    <div class="mt-4">
+      <label for="Zip">Zip </label>
+      <input
+        type="text"
+        class="w-full border rounded p-2"
+        id="Zip"
+        formControlName="zip"
+      />
+    </div>
+  </div>
+
+  <div class="flex gap-2 align-middle">
+    <button
     type="submit"
     class="mt-5 bg-indigo-500 px-4 py-2 text-slate-50 rounded"
     [disabled]="!profileForm.valid"
   >
     Submit
   </button>
+  <button (click)="updateControlValue()" class="mt-5 bg-green-500 px-4 py-2 text-slate-50 rounded">Reset Defaults</button>
+  </div>
 </form>
+<p>{{profileForm.value| json}}</p>

@@ -1,0 +1,30 @@
+<form class="p-5 shadow-md" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <h3 class="font-bold text-lg">Profile Information</h3>
+  <div class="mt-5">
+    <label for="firstName">First Name </label>
+    <input
+      type="text"
+      id="firstName"
+      class="w-full border rounded p-2"
+      formControlName="firstName"
+    />
+  </div>
+
+  <div class="mt-5">
+    <label for="lastName">Last Name </label>
+    <input
+      type="text"
+      id="lastName"
+      class="w-full border rounded p-2"
+      formControlName="lastName"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="mt-5 bg-indigo-500 px-4 py-2 text-slate-50 rounded"
+    [disabled]="!profileForm.valid"
+  >
+    Submit
+  </button>
+</form>

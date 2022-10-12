@@ -16,6 +16,12 @@ export class ProfileEditorComponent {
       state: [''],
       zip: [''],
     }),
+    hobbies: this.fb.group({
+      sing: [false],
+      dance: [false],
+      code: [false],
+      favoriteThingTodo: ['']
+    }),
   });
 
   constructor(private fb: FormBuilder) {}
@@ -29,8 +35,8 @@ export class ProfileEditorComponent {
       firstName: 'Yan Moe',
       lastName: 'Naing',
       address: {
-        city: "Yesagyo"
-      }
+        city: 'Yesagyo',
+      },
     });
   }
 }

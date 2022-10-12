@@ -1,5 +1,10 @@
 <form class="p-3 shadow-md" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <h3 class="font-bold text-lg">Profile Information - <span class="uppercase text-blue-500">Form status: {{profileForm.status}}</span></h3>
+  <h3 class="font-bold text-lg">
+    Profile Information -
+    <span class="uppercase text-blue-500"
+      >Form status: {{ profileForm.status }}</span
+    >
+  </h3>
   <div class="mt-2">
     <label for="firstName">First Name </label>
     <input
@@ -63,15 +68,53 @@
     </div>
   </div>
 
+  <div class="mt-2" formGroupName="hobbies">
+    <h4 class="py-3 font-bold uppercase">Hobbies</h4>
+
+    <div class="flex gap-2">
+      <input type="checkbox" name="a" id="sing" formControlName="sing" />
+      <label for="sing">Sing</label>
+    </div>
+
+    <div class="flex gap-2">
+      <input type="checkbox" name="dance" id="dance" formControlName="dance" />
+      <label for="dance">Dance</label>
+    </div>
+    <div class="flex gap-2">
+      <input type="checkbox" name="code" id="code" formControlName="code" />
+      <label for="code">Coding</label>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-3">
+      <label for="fav">Select Favorite thing:</label>
+      <select
+        name="fav"
+        id="fav"
+        class="border p-3 text-lg"
+        formControlName="favoriteThingTodo"
+      >
+        <option value="" disabled>Select One</option>
+        <option value="masturbate">Masturbate</option>
+        <option value="sleep">Sleeping</option>
+        <option value="Eating">Eating</option>
+      </select>
+    </div>
+  </div>
+
   <div class="flex gap-2 align-middle">
     <button
-    type="submit"
-    class="mt-2 bg-indigo-500 px-4 py-2 text-slate-50 rounded disabled:bg-slate-300 disabled:cursor-not-allowed"
-    [disabled]="!profileForm.valid"
-  >
-    Submit
-  </button>
-  <button (click)="updateControlValue()" class="mt-2 bg-green-500 px-4 py-2 text-slate-50 rounded">Reset Defaults</button>
+      type="submit"
+      class="mt-2 bg-indigo-500 px-4 py-2 text-slate-50 rounded disabled:bg-slate-300 disabled:cursor-not-allowed"
+      [disabled]="!profileForm.valid"
+    >
+      Submit
+    </button>
+    <button
+      (click)="updateControlValue()"
+      class="mt-2 bg-green-500 px-4 py-2 text-slate-50 rounded"
+    >
+      Reset Defaults
+    </button>
   </div>
 </form>
-<p>{{profileForm.value| json}}</p>
+<p>{{ profileForm.value | json }}</p>

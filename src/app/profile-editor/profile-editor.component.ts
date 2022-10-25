@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ConfigService } from '../config/config.service';
+
 
 @Component({
   selector: 'app-profile-editor',
@@ -18,9 +20,17 @@ export class ProfileEditorComponent implements OnInit {
     }),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: ConfigService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    fetch(
+      'https://d2-olive-api.venuslab.co/api/v1.0.0/location/country?code=mm'
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
 
   onSubmit() {}
 }

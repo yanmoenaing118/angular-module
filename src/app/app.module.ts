@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormComponent } from './form.component';
@@ -12,19 +13,11 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
     AppComponent,
     ReactiveFormComponent,
     NameEditorComponent,
-    ProfileEditorComponent
+    ProfileEditorComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule{ 
-
-  
-
-}
+export class AppModule {}

@@ -1,42 +1,26 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
   templateUrl: './profile-editor.component.html',
   styleUrls: ['./profile-editor.component.css'],
 })
-export class ProfileEditorComponent {
-  profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: [''],
+export class ProfileEditorComponent implements OnInit {
+  profile = this.fb.group({
+    name: [''],
+    email: [''],
     address: this.fb.group({
       street: [''],
+      division: [''],
       city: [''],
-      state: [''],
-      zip: [''],
-    }),
-    hobbies: this.fb.group({
-      sing: [false],
-      dance: [false],
-      code: [false],
-      favoriteThingTodo: ['']
+      township: [''],
     }),
   });
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit() {
-    console.log(this.profileForm.value);
-  }
+  ngOnInit(): void {}
 
-  updateControlValue() {
-    this.profileForm.patchValue({
-      firstName: 'Yan Moe',
-      lastName: 'Naing',
-      address: {
-        city: 'Yesagyo',
-      },
-    });
-  }
+  onSubmit() {}
 }

@@ -1,120 +1,46 @@
-<form class="p-3 shadow-md" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <h3 class="font-bold text-lg">
-    Profile Information -
-    <span class="uppercase text-blue-500"
-      >Form status: {{ profileForm.status }}</span
-    >
-  </h3>
-  <div class="mt-2">
-    <label for="firstName">First Name </label>
+<form class="p-10" [formGroup]="profile" (ngSubmit)="onSubmit()">
+  <h3 class="uppercase font-bold">Personal Info</h3>
+
+  <div class="mb-3">
+    <label for="name">Full Name</label>
     <input
       type="text"
-      id="firstName"
       class="w-full border rounded p-2"
-      formControlName="firstName"
+      formControlName="name"
     />
   </div>
 
-  <div class="mt-2">
-    <label for="lastName">Last Name </label>
+  <div class="mb-3">
+    <label for="email">Email</label>
     <input
-      type="text"
-      id="lastName"
+      type="email"
       class="w-full border rounded p-2"
-      formControlName="lastName"
+      formControlName="email"
     />
   </div>
 
-  <div class="mt-2" formGroupName="address">
-    <h4 class="py-3 font-bold uppercase">Address</h4>
-    <div class="mt-4">
-      <label for="street">Street </label>
+  <h3 class="uppercase font-bold">Address</h3>
+
+  <div formGroupName="address">
+    <div class="mb-3">
+      <label for="street">Street</label>
       <input
         type="text"
+        name="street"
         id="street"
         class="w-full border rounded p-2"
         formControlName="street"
       />
     </div>
-
-    <div class="mt-4">
-      <label for="city">City </label>
-      <input
-        type="text"
-        class="w-full border rounded p-2"
-        id="city"
-        formControlName="city"
-      />
-    </div>
-
-    <div class="mt-4">
-      <label for="State">State </label>
-      <input
-        type="text"
-        class="w-full border rounded p-2"
-        id="State"
-        formControlName="state"
-      />
-    </div>
-
-    <div class="mt-4">
-      <label for="Zip">Zip </label>
-      <input
-        type="text"
-        class="w-full border rounded p-2"
-        id="Zip"
-        formControlName="zip"
-      />
-    </div>
   </div>
 
-  <div class="mt-2" formGroupName="hobbies">
-    <h4 class="py-3 font-bold uppercase">Hobbies</h4>
-
-    <div class="flex gap-2">
-      <input type="checkbox" name="a" id="sing" formControlName="sing" />
-      <label for="sing">Sing</label>
-    </div>
-
-    <div class="flex gap-2">
-      <input type="checkbox" name="dance" id="dance" formControlName="dance" />
-      <label for="dance">Dance</label>
-    </div>
-    <div class="flex gap-2">
-      <input type="checkbox" name="code" id="code" formControlName="code" />
-      <label for="code">Coding</label>
-    </div>
-
-    <div class="flex flex-col gap-2 mt-3">
-      <label for="fav">Select Favorite thing:</label>
-      <select
-        name="fav"
-        id="fav"
-        class="border p-3 text-lg"
-        formControlName="favoriteThingTodo"
-      >
-        <option value="" disabled>Select One</option>
-        <option value="masturbate">Masturbate</option>
-        <option value="sleep">Sleeping</option>
-        <option value="Eating">Eating</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="flex gap-2 align-middle">
-    <button
-      type="submit"
-      class="mt-2 bg-indigo-500 px-4 py-2 text-slate-50 rounded disabled:bg-slate-300 disabled:cursor-not-allowed"
-      [disabled]="!profileForm.valid"
-    >
+  <div class="mb-3">
+    <button class="px-3 py-2 bg-indigo-400 text-slate-50 rounded-sm">
       Submit
-    </button>
-    <button
-      (click)="updateControlValue()"
-      class="mt-2 bg-green-500 px-4 py-2 text-slate-50 rounded"
-    >
-      Reset Defaults
     </button>
   </div>
 </form>
-<p>{{ profileForm.value | json }}</p>
+
+<div class="mt-6 p-2 shadow-sm">
+  {{ profile.value | json }}
+</div>

@@ -20,7 +20,11 @@ export class ProfileEditorComponent implements OnInit {
     }),
   });
 
-  constructor(private fb: FormBuilder, private http: ConfigService) {}
+  no: number = 0;
+
+  constructor(private fb: FormBuilder, private http: ConfigService) {
+    this.no = 0;
+  }
 
   ngOnInit(): void {
     fetch(
@@ -30,6 +34,8 @@ export class ProfileEditorComponent implements OnInit {
       .then((data) => {
         console.log(data);
       });
+
+      
   }
 
   onSubmit() {}

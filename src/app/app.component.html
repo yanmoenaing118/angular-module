@@ -1,6 +1,28 @@
-<!-- <h1 class="text-indigo-500 font-bold text-lg shadow-md px-5 py-4"> Form Controls</h1> -->
+<main>
 
-<!-- <app-name-editor></app-name-editor> -->
-<div class="max-w-lg mx-auto shadow-lg mt-5">
-    <app-profile-editor></app-profile-editor>
-</div>
+    <div class="mt-5 flex flex-col">
+        <label for="name">Name</label>
+        <input class="border p-3" type="text" name="name" id="name" [formControl]="name">
+    </div>
+    <div class="mt-5 flex flex-col">
+        <label for="age">Age</label>
+        <input class="border p-3" type="number" name="age" id="age" [formControl]="age">
+    </div>
+
+    <button class="border shadow-sm px-3 py-2 mt-5" (click)="onSave()">Save</button>
+</main>
+
+<section class="mt-10 p-3 shadow-md">
+    <h3 class="uppercase font-bold" >Persons</h3>
+    <h3>{{persons | json}}</h3>
+
+</section>
+
+    <section class="mt-12 p-3 shadow-lg">
+        <h3 class="uppercase font-bold">Enter name to delete</h3>
+        <div class="mt-5 flex flex-col">
+            <label for="age">Age</label>
+            <input class="border p-3" type="text" name="age" id="age" [formControl]="toDelete">
+        </div>
+        <button (click)="deletePerson()" class="border mt-3 px-3 py-2 rounded bg-red-500 text-slate-50">Delete</button>
+    </section>

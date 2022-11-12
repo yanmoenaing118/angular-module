@@ -6,10 +6,11 @@ import { GalleryListComponent } from './gallery/gallery-list/gallery-list.compon
 import { GalleryDetailComponent } from './gallery/gallery-detail/gallery-detail.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [BrowserModule, RouterModule, AppRoutingModule],
   exports: [],
   providers: [],

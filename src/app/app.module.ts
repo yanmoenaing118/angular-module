@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
-  declarations: [AppComponent, GalleryListComponent, GalleryDetailComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, RouterModule, AppRoutingModule],
   exports: [],
   providers: [],

@@ -15,7 +15,7 @@ export class MoviesService {
     });
   }
 
-  getMovieDetail(id: string | null) {
+  getMovieDetail(id: string | null | undefined) {
     return this.http.get(`${this.BASE_URL}/${id}`, {
       headers: {
         'Content-Type': "application/json"

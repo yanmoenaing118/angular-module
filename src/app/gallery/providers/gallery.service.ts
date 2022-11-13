@@ -12,14 +12,22 @@ export class GalleryService {
       headers: {
         'Content-Type': 'application/json',
       },
-    })
+    });
   }
 
   getGalleryDetail(id: string | null) {
-    return this.http.get(this.BASE_URL + "/gallery/" + id, {
+    return this.http.get(this.BASE_URL + '/gallery/' + id, {
       headers: {
-        "Content-Type": "application/json"
-      }
-    })
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  createGallery(body: any) {
+    return this.http.post(this.BASE_URL + '/gallery', body, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 }

@@ -1,15 +1,15 @@
 <section class="flex justify-between gap-6">
-    <div *ngFor="let i of [1,2,3]" class="shadow-md rounded p-2">
-    <a routerLink="{{i}}">
-        <img src="https://i.pinimg.com/originals/c4/c4/78/c4c478de76ab768d43d7a32641be8397.jpg" alt="Go Yoon Jung"
-            class="object-cover">
+    <div *ngFor="let item of gallery" class="shadow-md rounded p-2">
+    <a routerLink="{{item.id}}">
+        <img [src]="item.image" alt="Go Yoon Jung"
+            class="object-cover"> </a>
         <div class="flex justify-between items-center py-2">
             <p class="font-medium text-base text-gray-600 ">
-                Go Yoon Jung
+                {{item.title}}
             </p>
             <button class="bg-red-600 text-white text-sm uppercase p-2 rounded-md">Love</button>
         </div>
-    </a>
+   
     </div>
 </section>
 

@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { MoviesModule } from './movies/movies.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { CastsModule } from './casts/casts.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CastsModule } from './casts/casts.module';
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
     AppRoutingModule,
     MoviesModule,
     GalleryModule,

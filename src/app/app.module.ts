@@ -7,11 +7,12 @@ import { GalleryDetailComponent } from './gallery/gallery-detail/gallery-detail.
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { MoviesModule } from './movies/movies.module';
 
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, RouterModule, AppRoutingModule],
+  imports: [BrowserModule, RouterModule, AppRoutingModule, MoviesModule],
   exports: [],
   providers: [],
   bootstrap: [AppComponent],

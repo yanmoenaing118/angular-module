@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesComponent } from './movies/movies.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MoviesService } from './provider/movies.service';
 
 
 
@@ -15,6 +16,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
   imports: [
     CommonModule,
     MoviesRoutingModule
-  ]
+  ],
+  providers: [MoviesService]
 })
 export class MoviesModule { }

@@ -1,2 +1,16 @@
-<p>movies works!</p>
-<a routerLink="love-like-the-gaalaxy">Love Like the galaxy</a>
+<section>
+    <h1 class="font-bold text-2xl">Movies List</h1>
+    <div class="flex gap-4 flex-wrap">
+        <div *ngFor="let movie of movies">
+            <div class="shadow-md p-3 rounded">
+                <div class="h-48 mb-2">
+                    <img [src]="movie.image" [alt]="movie.title" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-gray-700 font-bold">{{movie.title}}</h2>
+                <p class="text-sm">Rating: <span class="text-sm text-green-500">{{movie.rating}}/5</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <a routerLink="love-like-the-gaalaxy">Love Like the galaxy</a> -->

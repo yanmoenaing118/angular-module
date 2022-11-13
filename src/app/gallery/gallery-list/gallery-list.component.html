@@ -1,5 +1,6 @@
 <section class="flex justify-between gap-6">
     <div *ngFor="let i of [1,2,3]" class="shadow-md rounded p-2">
+    <a routerLink="{{i}}">
         <img src="https://i.pinimg.com/originals/c4/c4/78/c4c478de76ab768d43d7a32641be8397.jpg" alt="Go Yoon Jung"
             class="object-cover">
         <div class="flex justify-between items-center py-2">
@@ -8,6 +9,7 @@
             </p>
             <button class="bg-red-600 text-white text-sm uppercase p-2 rounded-md">Love</button>
         </div>
+    </a>
     </div>
 </section>
 

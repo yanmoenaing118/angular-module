@@ -8,11 +8,6 @@ const routes: Routes = [
   },
   {
     path: "home", component: HomeComponent
-  },
-  {
-    path: 'gallery',
-    loadChildren: () =>
-      import('./gallery/gallery.module').then((m) => m.GalleryModule),
   }
 ];
 

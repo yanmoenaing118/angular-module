@@ -5,16 +5,11 @@ import { GalleryListComponent } from './gallery-list/gallery-list.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'list',
-    pathMatch: 'full',
-  },
-  {
-    path: 'list',
+    path: 'gallery',
     component: GalleryListComponent,
   },
   {
-    path: "list/:id",
+    path: "gallery/:id",
     component: GalleryDetailComponent
   }
 ];

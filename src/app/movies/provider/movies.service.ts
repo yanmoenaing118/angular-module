@@ -18,8 +18,16 @@ export class MoviesService {
   getMovieDetail(id: string | null | undefined) {
     return this.http.get(`${this.BASE_URL}/${id}`, {
       headers: {
-        'Content-Type': "application/json"
-      }
-    })
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  createMovie(body: any) {
+    return this.http.post(`${this.BASE_URL}`, body, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 }

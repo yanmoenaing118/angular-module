@@ -9,12 +9,15 @@ import { MoviesModule } from './movies/movies.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { CastsModule } from './casts/casts.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
     AppRoutingModule,

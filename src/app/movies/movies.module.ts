@@ -4,6 +4,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MoviesService } from './provider/movies.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,10 +13,12 @@ import { MoviesService } from './provider/movies.service';
     MoviesComponent,
     MovieDetailComponent
   ],
-  exports: [MoviesComponent],
+  exports: [],
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [MoviesService]
 })

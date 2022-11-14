@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-movie-detail',
@@ -8,7 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MovieDetailComponent implements OnInit {
 
   @Input() selectedMovie: any;
+  @Output() deleteMovie = new EventEmitter()
 
+
+  delMovie(movie: any){
+    this.deleteMovie.emit(movie)
+  }
 
   constructor() { }
 

@@ -64,7 +64,8 @@
         <div class="border">
             <p *ngIf="!selectedMovie">Click a movie</p>
         <app-movie-detail *ngIf="selectedMovie" [selectedMovie]="selectedMovie"
-          ></app-movie-detail>
+        (deleteMovie)="deleteMovie($event)"  
+        ></app-movie-detail>
         </div>
     </div>
 </section>

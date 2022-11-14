@@ -47,6 +47,11 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  deleteMovie(id: any){
+    // this.moviesService
+    console.log(id);
+  }
+
   fetchMoviesList() {
     this.moviesService.getMovies().subscribe((res) => (this.movies = res));
   }

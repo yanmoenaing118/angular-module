@@ -10,6 +10,7 @@ import { GalleryModule } from './gallery/gallery.module';
 import { CastsModule } from './casts/casts.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { SongsModule } from './songs/songs.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     MoviesModule,
     GalleryModule,
-    CastsModule
+    CastsModule,
+    SongsModule
   ],
   exports: [],
   providers: [],

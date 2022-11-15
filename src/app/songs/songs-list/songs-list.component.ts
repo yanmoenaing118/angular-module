@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Song } from '../types';
 
 @Component({
   selector: 'app-songs-list',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongsListComponent implements OnInit {
 
-  constructor() { }
+  songList!: Array<Song>;
+  song!: Song | undefined;
+  
+
+  constructor() {}
+
+
 
   ngOnInit(): void {
+    this.songList = [
+      {
+       title: "Colour Glass",
+       singer: "Somebody" 
+      },
+      {
+        title: "This Love",
+        singer: "Davichi"
+      }
+    ]
+  }
+
+  selectSong(songName: string) {
+    this.song = this.songList.find(el => el.title === songName);
+  }
+
+  clickedOnSongDetails(event: any) {
+    console.log(event);
   }
 
 }

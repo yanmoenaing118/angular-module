@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SongsListComponent } from './songs-list/songs-list.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { SongsRoutingModule } from './songs-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { SongsRoutingModule } from './songs-routing.module';
   ],
   imports: [
     CommonModule,
-    SongsRoutingModule
+    SongsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class SongsModule { }

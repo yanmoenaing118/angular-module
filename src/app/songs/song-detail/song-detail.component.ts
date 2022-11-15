@@ -33,6 +33,9 @@ export class SongDetailComponent implements OnInit, OnChanges {
     this.clickSong.emit(song);
   }
 
+  songDetailLog() {
+    console.log(this.song);
+  }
 
 
 }

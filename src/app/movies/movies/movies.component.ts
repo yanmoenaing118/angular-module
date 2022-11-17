@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormBuilder, FormsModule } from '@angular/forms';
 import { MoviesService } from '../provider/movies.service';
 
 @Component({
@@ -11,13 +11,15 @@ export class MoviesComponent implements OnInit {
   movies: any = [];
   selectedMovie: any = null;
 
-  titleControl = new FormControl('');
-  posterControl = new FormControl('');
-  ratingControl = new FormControl('');
-  favoriteControl = new FormControl('');
-  countryControl = new FormControl('');
+  form = this.fb.group({
+    title: [''],
+    image: [''],
+    rating: [''],
+    isFav: [''],
+    country: [''],
+  });
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.fetchMoviesList();
@@ -30,13 +32,7 @@ export class MoviesComponent implements OnInit {
   }
 
   createMovie() {
-    const movie = {
-      title: this.titleControl.value,
-      image: this.posterControl.value,
-      rating: this.ratingControl.value,
-      isFav: this.favoriteControl.value,
-      country: this.countryControl.value,
-    };
+    const movie = this.form.value;
 
     console.log('movie', movie);
 
@@ -47,7 +43,7 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  deleteMovie(id: any){
+  deleteMovie(id: any) {
     // this.moviesService
     console.log(id);
   }

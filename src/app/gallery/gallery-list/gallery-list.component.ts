@@ -10,10 +10,12 @@ import { GalleryService } from '../providers/gallery.service';
 export class GalleryListComponent implements OnInit {
   gallery: any = [];
 
-  galleryForm = this.fb.group({
+  galleryForm: any = this.fb.group({
     title: [''],
     image: [''],
     description: [''],
+    file: [''],
+    fileSource: [null],
   });
 
   constructor(
@@ -29,14 +31,30 @@ export class GalleryListComponent implements OnInit {
     this.galleryService.getGallery().subscribe((res) => (this.gallery = res));
   }
 
+  onFileChoose(event: any) {
+    this.galleryForm.patchValue({
+      fileSource: event.target.files[0],
+    });
+  }
 
   createGallery() {
-    console.log('gallery', this.galleryForm.value);
-    this.galleryService.createGallery(this.galleryForm.value)
-    .subscribe(res => {
-      if(res) {
-        this.fetchGallery();
-      }
-    })
+    // console.log('gallery', this.galleryForm.value);
+
+    const formData: any = new FormData();
+
+    for (let key in this.galleryForm.value) {
+      formData.append(key, this.galleryForm.value[key]);
+    }
+
+    for (const pair of formData.entries()) {
+      console.log(`${pair[0]}, ${pair[1]}`);
+    }
+    this.galleryService
+      .createGallery(formData)
+      .subscribe((res) => {
+        if (res) {
+          this.fetchGallery();
+        }
+      });
   }
 }

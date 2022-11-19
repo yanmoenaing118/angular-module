@@ -11,10 +11,11 @@ import { CastsModule } from './casts/casts.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { SongsModule } from './songs/songs.module';
+import { HelloWorldComponent, ListComponent, ListItemComponent, TimerComponent } from './hello-world.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, HelloWorldComponent, TimerComponent, ListComponent, ListItemComponent],
   imports: [
     BrowserModule,
     FormsModule,

@@ -24,10 +24,6 @@ export class GalleryService {
   }
 
   createGallery(body: any) {
-    return this.http.post(this.BASE_URL + '/gallery', body, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    return this.http.post(this.BASE_URL + '/gallery', body);
   }
 }

@@ -1,40 +1,71 @@
 <section>
-    <form (ngSubmit)="createGallery()" [formGroup]="galleryForm">
-        <div class="mb-2 flex flex-col">
-            <label for="title">Name</label>
-            <input type="text" formControlName="title" id="title" class="border p-2">
-        </div>
+  <form (ngSubmit)="createGallery()" [formGroup]="galleryForm">
+    <div class="mb-2 flex flex-col">
+      <label for="title">Name</label>
+      <input
+        type="text"
+        formControlName="title"
+        id="title"
+        class="border p-2"
+      />
+    </div>
 
-        <div class="mb-2 flex flex-col">
-            <label for="poster">Image URL</label>
-            <input type="text" formControlName="image" id="poster" class="border p-2">
-        </div>
+    <div class="mb-2 flex flex-col">
+      <label for="poster">Image URL</label>
+      <input
+        type="text"
+        formControlName="image"
+        id="poster"
+        class="border p-2"
+      />
+    </div>
 
-        <div class="mb-4 flex flex-col">
-            <label for="rating">Description</label>
-            <input formControlName="description" type="text" name="rating" id="rating" class="border p-2">
-        </div>
+    <div class="mb-4 flex flex-col">
+      <label for="rating">Description</label>
+      <input
+        formControlName="description"
+        type="text"
+        name="rating"
+        id="rating"
+        class="border p-2"
+      />
+    </div>
 
+    <div class="mb-4 flex flex-col">
+      <label for="file">Choose File</label>
+      <input
+        type="file"
+        name="file"
+        id="file"
+        formControlName="file"
+        (change)="onFileChoose($event)"
+      />
+    </div>
 
-        <div>
-            <button class="px-3.5 py-2 bg-green-500 text-white text-lg shadow-sm rounded">Submit</button>
-        </div>
-    </form>
+    <div>
+      <button
+        class="px-3.5 py-2 bg-green-500 text-white text-lg shadow-sm rounded"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 </section>
 
 <section class="flex flex-wrap gap-6">
-    <div *ngFor="let item of gallery" class="shadow-md rounded p-2">
-    <a routerLink="{{item.id}}">
-        <img [src]="item.image" alt="Go Yoon Jung"
-            class="object-cover w-64"> </a>
-        <div class="flex justify-between items-center py-2">
-            <p class="font-medium text-base text-gray-600 ">
-                {{item.title}}
-            </p>
-            <button class="bg-red-600 text-white text-sm uppercase p-2 rounded-md">Love</button>
-        </div>
-   
+  <div *ngFor="let item of gallery" class="shadow-md rounded p-2">
+    <a routerLink="{{ item.id }}">
+      <img [src]="item.image" alt="Go Yoon Jung" class="object-cover w-64" />
+    </a>
+    <div class="flex justify-between items-center py-2">
+      <p class="font-medium text-base text-gray-600">
+        {{ item.title }}
+      </p>
+      <button class="bg-red-600 text-white text-sm uppercase p-2 rounded-md">
+        Love
+      </button>
     </div>
+  </div>
 </section>
 
 <!-- <app-gallery-detail></app-gallery-detail> -->

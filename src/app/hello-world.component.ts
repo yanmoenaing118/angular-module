@@ -9,7 +9,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 export class HelloComponent {}
 
 @Component({
-  selector: 'app-child',
+  selector: 'app-child-test',
   template: `
     <div class="text-lg font-bold p-4 bg-green-500 text-white">{{ num }}</div>
     
@@ -32,10 +32,7 @@ export class ChildComponent {
   template: `
     <div class="p-5 shadow-md">
 
-      <app-child #child></app-child>
 
-      <div>{{child.num}}</div>
-  
       <div class="flex justify-center gap-4 mt-5">
         <button (click)="increase()" class="px-4 py-2 font-bold bg-red-500 text-white">INC +</button>
         <button (click)="decrease()" class="px-4 py-2 font-bold bg-red-500 text-white">DEC -</button>

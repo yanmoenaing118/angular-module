@@ -11,11 +11,13 @@ import { CastsModule } from './casts/casts.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { SongsModule } from './songs/songs.module';
-import { ChildComponent, HelloComponent, ParentComponent } from './hello-world.component';
+
+import { ChildComponent } from './child/child.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HelloComponent, ChildComponent, ParentComponent],
+  declarations: [AppComponent, ChildComponent, CardComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -26,7 +28,7 @@ import { ChildComponent, HelloComponent, ParentComponent } from './hello-world.c
     MoviesModule,
     GalleryModule,
     CastsModule,
-    SongsModule
+    SongsModule,
   ],
   exports: [],
   providers: [],

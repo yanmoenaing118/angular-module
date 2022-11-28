@@ -14,10 +14,12 @@ import { SongsModule } from './songs/songs.module';
 
 import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
+import { ButtonComponent } from './widgets/button/button.component';
+import { ListComponent } from './widgets/list/list.component';
 
 
 @NgModule({
-  declarations: [AppComponent, ChildComponent, CardComponent],
+  declarations: [AppComponent, ChildComponent, CardComponent, ButtonComponent, ListComponent],
   imports: [
     BrowserModule,
     FormsModule,

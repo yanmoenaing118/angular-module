@@ -1,13 +1,14 @@
 <!-- <button (click)="isOn = !isOn">{{isOn ? 'Off' : 'On'}}</button> -->
 
 <div class="m-4">
-    <div class="flex gap-4">
-        <button class="p-3 border" (click)="incCount()" >+</button>
-        <button class="p-3 border" (click)="decCount()">-</button>
-        <button class="p-3 border" (click)="updateCount(3)">SET 3</button>
-        <button class="p-3 border" (click)="updateCount(4)">SET 4</button>
-        <button class="p-3 border" (click)="updateCount(5)">SET 5</button>
-    </div>
-    
-    <app-child [counter]="counter"></app-child>
+  <div class="flex gap-4">
+    <button class="p-3 border" (click)="updateCount()">
+      update
+    </button>
+    <button class="p-3 border" (click)="calledByParent()">
+      calledByParent
+    </button>
+  </div>
+
+  <app-child #ch1></app-child>
 </div>

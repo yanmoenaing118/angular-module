@@ -1,1 +1,10 @@
-<h1>hello my app</h1>
+<!-- <button (click)="isOn = !isOn">{{isOn ? 'Off' : 'On'}}</button> -->
+
+<div class="m-4">
+    <div class="flex gap-4">
+        <button class="p-3 border" (click)="incCount()" >+</button>
+        <button class="p-3 border" (click)="decCount()">-</button>
+    </div>
+    
+    <app-child [count]="count"></app-child>
+</div>

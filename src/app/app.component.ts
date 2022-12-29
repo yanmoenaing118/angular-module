@@ -1,52 +1,41 @@
 import { Component, Directive, Input, ViewChild } from '@angular/core';
 
-@Component({
-  selector: 'app-counter',
-  template: `Count: {{ count }}`,
-})
-export class AppCounter {
-  count: number = 0;
-
-  incCount() {
-    this.count++;
-  }
-
-  decCount() {
-    this.count--;
-  }
-}
-
 @Directive({
-    selector: 'pane'
+  selector: 'pane',
 })
-
 export class Pane {
-    @Input() id!: string;
+  @Input() id!: string;
 }
 
 @Component({
   selector: 'app-root',
   template: `
-    <h1 class="mb-4">App Component</h1>
-    <pane id="1" *ngIf="shouldShow"></pane>
-    <pane id="2" *ngIf="!shouldShow"></pane>
+    <h1 [ngClass]="classes" style="transition: all .3s ease;">hello hi who are you</h1>
 
-    <button (click)="toggle()">Toggle</button>
-    
+    <button (click)="setClasses()">Toggle Classes</button>
   `,
 })
 export class AppComponent {
+  isPurple: boolean = true;
+  isUpper: boolean = true;
+  isBgSlate: boolean = true;
 
-    selectedPane!: string;
-    shouldShow: boolean = false;
+  classes: Record<string, boolean> = {
+    'text-purple-600': this.isPurple,
+    uppercase: this.isUpper,
+    'bg-slate-800': this.isBgSlate,
+  };
 
-    @ViewChild(Pane)
-    set page(v: Pane) {
-        this.selectedPane = v.id;
-    }
+  setClasses() {
+    this.isPurple = !this.isPurple;
+    this.isUpper = !this.isUpper;
+    this.isBgSlate = !this.isBgSlate;
 
-    toggle() {
-        this.shouldShow = !this.shouldShow;
-    }
-
+    this.classes = {
+        ...this.classes,
+      'text-purple-600': this.isPurple,
+      uppercase: this.isUpper,
+      'bg-slate-800': this.isBgSlate,
+    };
+  }
 }

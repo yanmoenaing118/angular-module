@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent, AppCounter, Pane } from './app.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent, AppCounter, Pane],
+  declarations: [AppComponent],
   imports: [BrowserModule],
   exports: [],
   providers: [],

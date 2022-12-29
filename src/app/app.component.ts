@@ -1,75 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  template: ` <div>value: {{ counter }}</div> `,
+  template: `Count: {{ count }}`,
 })
-export class CounterComponent {
-  counter: number = 0;
-  updateCounter(dir: any) {
-    if (dir == '+') {
-      this.counter++;
-    } else {
-      this.counter--;
-    }
+export class AppCounter {
+  count: number = 0;
+
+  incCount() {
+    this.count++;
   }
 
-  increaseBy(value: number) {
-    this.counter = this.counter + value;
-  }
-
-  decreaseBy(value: number) {
-    this.counter = this.counter - value;
+  decCount() {
+    this.count--;
   }
 }
 
-/**Parent App Component */
 @Component({
   selector: 'app-root',
   template: `
-    <button class="p-3 border" (click)="ch.updateCounter('+')">Increase</button>
-    <button class="p-3 border" (click)="ch.updateCounter('-')">Decrease</button>
-    <button class="p-3 border" (click)="ch.increaseBy(5)">Increase By 5</button>
-    <button class="p-3 border" (click)="ch.decreaseBy(5)">Decrease By 5</button>
-    <br /><br />
-    <button class="p-3 border" (click)="ch2.updateCounter('+')">
-      Increase
-    </button>
-    <button class="p-3 border" (click)="ch2.updateCounter('-')">
-      Decrease
-    </button>
-    <button class="p-3 border" (click)="ch2.increaseBy(5)">
-      Increase By 5
-    </button>
-    <button class="p-3 border" (click)="ch2.decreaseBy(5)">
-      Decrease By 5
-    </button>
-    <br />
+    <h1 class="mb-4">App Component</h1>
 
-    <app-counter #ch></app-counter>
-    <app-counter #ch2></app-counter>
-    <div class="mt-10">
-      <h3 class="text-lg font-bold">Counter One ch status</h3>
-      <div
-        *ngIf="ch.counter > 5"
-        class="p-5 shadow-md bg-emerald-300 text-white"
-      >
-        The counter one is greater than 5
-      </div>
-      <div
-        *ngIf="ch.counter < 0"
-        class="p-5 shadow-md bg-purple-300 text-white"
-      >
-        The counter one is less than 0
-      </div>
+    <div class="flex gap-4 items-center">
+      <h3 class="text-gray-600">Counter One</h3>
+      <button class="p-2 border" (click)="counter1.incCount()">INC +</button>
+      <button class="p-2 border" (click)="counter1.decCount()">DEC -</button>
+      <app-counter #counter1></app-counter>
     </div>
 
-    <div class="mt-10">
-      <h3 class="text-lg font-bold">Counter Two ch2 Status</h3> 
-      <div *ngIf="ch2.counter > 5" class="p-5 shadow-md bg-orange-300">The Counter ch2 is greater than 5</div>
-      <div *ngIf="ch2.counter < 0" class="p-5 shadow-md bg-red-300">The Counter ch2 is less than 0</div>
+    <div class="flex gap-4 items-center mt-4">
+      <h3 class="text-gray-600">Counter Two</h3>
+      <button class="p-2 border" (click)="counter2.incCount()">INC +</button>
+      <button class="p-2 border" (click)="counter2.decCount()">DEC -</button>
+      <app-counter #counter2></app-counter>
     </div>
+
+    <h3 class="font-bold text-purple-700">
+      {{
+        counter2.count > counter1.count
+          ? 'Counter Two  > Counter One'
+          : counter2.count === counter1.count
+          ? 'Two Counters are equal'
+          : 'Counter Two < Counter One'
+      }}
+    </h3>
   `,
-  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {}

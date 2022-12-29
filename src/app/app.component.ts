@@ -14,6 +14,8 @@ export class Pane {
       hello hi who are you
     </h1>
 
+    <h1 [ngStyle]="styles">NgStyle Directive</h1>
+
    <div class="flex gap-3">
    <button class="border p-2"  (click)="togglePurple()">Toggle Purple</button>
     <button  class="border p-2" (click)="toggleUpper()">Toggle Upper</button>
@@ -26,11 +28,21 @@ export class AppComponent {
   isUpper: boolean = true;
   isBgSlate: boolean = true;
 
+  isFontSm: boolean = false;
+  isItalic: boolean = true;
+  isBold: boolean = true;
+
   classes: Record<string, boolean> = {
     'text-purple-600': this.isPurple,
     uppercase: this.isUpper,
     'bg-slate-800': this.isBgSlate,
   };
+
+  styles: Record<string, string> = {
+    'font-size': this.isFontSm ? '12px' : '20px',
+    'font-weight': this.isBold ? 'bold': 'normal',
+    'font-style': this.isItalic ? 'italic': 'regular'
+  }
 
   setClasses() {
     this.classes = {

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent, ChildComponent } from './app.component';
+import { AppComponent, CounterComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent, ChildComponent],
+  declarations: [AppComponent, CounterComponent],
   imports: [BrowserModule],
   exports: [],
   providers: [],

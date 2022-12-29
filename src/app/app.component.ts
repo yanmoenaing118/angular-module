@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Directive, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -16,34 +16,37 @@ export class AppCounter {
   }
 }
 
+@Directive({
+    selector: 'pane'
+})
+
+export class Pane {
+    @Input() id!: string;
+}
+
 @Component({
   selector: 'app-root',
   template: `
     <h1 class="mb-4">App Component</h1>
+    <pane id="1" *ngIf="shouldShow"></pane>
+    <pane id="2" *ngIf="!shouldShow"></pane>
 
-    <div class="flex gap-4 items-center">
-      <h3 class="text-gray-600">Counter One</h3>
-      <button class="p-2 border" (click)="counter1.incCount()">INC +</button>
-      <button class="p-2 border" (click)="counter1.decCount()">DEC -</button>
-      <app-counter #counter1></app-counter>
-    </div>
-
-    <div class="flex gap-4 items-center mt-4">
-      <h3 class="text-gray-600">Counter Two</h3>
-      <button class="p-2 border" (click)="counter2.incCount()">INC +</button>
-      <button class="p-2 border" (click)="counter2.decCount()">DEC -</button>
-      <app-counter #counter2></app-counter>
-    </div>
-
-    <h3 class="font-bold text-purple-700">
-      {{
-        counter2.count > counter1.count
-          ? 'Counter Two  > Counter One'
-          : counter2.count === counter1.count
-          ? 'Two Counters are equal'
-          : 'Counter Two < Counter One'
-      }}
-    </h3>
+    <button (click)="toggle()">Toggle</button>
+    
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+
+    selectedPane!: string;
+    shouldShow: boolean = false;
+
+    @ViewChild(Pane)
+    set page(v: Pane) {
+        this.selectedPane = v.id;
+    }
+
+    toggle() {
+        this.shouldShow = !this.shouldShow;
+    }
+
+}

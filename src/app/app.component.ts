@@ -10,9 +10,15 @@ export class Pane {
 @Component({
   selector: 'app-root',
   template: `
-    <h1 [ngClass]="classes" style="transition: all .3s ease;">hello hi who are you</h1>
+    <h1 [ngClass]="classes" style="transition: all .3s ease;">
+      hello hi who are you
+    </h1>
 
-    <button (click)="setClasses()">Toggle Classes</button>
+   <div class="flex gap-3">
+   <button class="border p-2"  (click)="togglePurple()">Toggle Purple</button>
+    <button  class="border p-2" (click)="toggleUpper()">Toggle Upper</button>
+    <button  class="border p-2" (click)="toggleBg()">Toggle BG</button>
+   </div>
   `,
 })
 export class AppComponent {
@@ -27,15 +33,26 @@ export class AppComponent {
   };
 
   setClasses() {
-    this.isPurple = !this.isPurple;
-    this.isUpper = !this.isUpper;
-    this.isBgSlate = !this.isBgSlate;
-
     this.classes = {
-        ...this.classes,
+      ...this.classes,
       'text-purple-600': this.isPurple,
       uppercase: this.isUpper,
       'bg-slate-800': this.isBgSlate,
     };
+  }
+
+  togglePurple() {
+    this.isPurple = !this.isPurple;
+    this.setClasses();
+  }
+
+  toggleUpper() {
+    this.isUpper = !this.isUpper;
+    this.setClasses();
+  }
+
+  toggleBg() {
+    this.isBgSlate = !this.isBgSlate;
+    this.setClasses();
   }
 }

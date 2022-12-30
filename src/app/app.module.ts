@@ -3,9 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent, Toast } from './app.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
-  declarations: [AppComponent, Toast],
+  declarations: [AppComponent, Toast, HighlightDirective],
   imports: [BrowserModule, FormsModule],
   exports: [],
   providers: [],

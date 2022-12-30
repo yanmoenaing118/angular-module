@@ -10,6 +10,14 @@ export class Pane {
 @Component({
   selector: 'app-root',
   template: `
+
+  <ng-container [ngSwitch]="status"]>
+    <app-toast *ngSwitchCase="'success'" [type]="'success'" [message]='"Thhis is success message"'></app-toast>
+    <app-toast *ngSwitchCase="'info'" [type]="'info'" [message]='"Thhis is info message"'></app-toast>
+    <app-toast *ngSwitchCase="'error'" [type]="'error'" [message]='"Thhis is error message"'></app-toast>
+
+  </ng-container>
+
     <h1 [ngClass]="classes" style="transition: all .3s ease;">
       hello hi who are you
     </h1>
@@ -25,7 +33,7 @@ export class Pane {
     <div class="mt-8 border-t">
       <h1>NgModel</h1>
 
-      <div>
+      <ng-container>
         <h3 class="text-gray-800">Current item: {{ currentItem.name }}</h3>
         <h3 class="text-gray-800">Current AGE: {{ currentItem.age }}</h3>
         <div>
@@ -51,10 +59,10 @@ export class Pane {
           <label for="age">AGE</label>
           <input class="border" type="number" [(ngModel)]="currentItem.age" />
         </div>
-      </div>
+      </ng-container>
     </div>
   `,
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   isPurple: boolean = true;
@@ -81,6 +89,8 @@ export class AppComponent {
     name: '',
     age: 0,
   };
+
+  status: string = "error";
 
   setClasses() {
     this.classes = {
@@ -109,4 +119,26 @@ export class AppComponent {
   setUppperCase(value: string) {
     this.currentItem.name = value.toUpperCase();
   }
+}
+
+@Component({
+  selector: 'app-toast',
+  template: `
+    <div
+      [ngClass]="{
+        'p-2': true,
+        'border-l-4': true,
+        'text-gray-500': true,
+        'border-green-600': type === 'success',
+        'border-blue-500': type === 'info',
+        'border-red-600': type === 'error'
+      }"
+    >
+      {{ message }}
+    </div>
+  `,
+})
+export class Toast {
+  @Input() type!: string;
+  @Input() message!: string;
 }

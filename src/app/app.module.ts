@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent, Toast } from './app.component';
-import { HighlightDirective } from './highlight.directive';
+import { AppComponent, ChildApp , NestedChildApp, TwoNestedChildComponent} from './app.component';
 
 @NgModule({
-  declarations: [AppComponent, Toast, HighlightDirective],
+  declarations: [AppComponent, ChildApp, NestedChildApp, TwoNestedChildComponent],
   imports: [BrowserModule, FormsModule],
   exports: [],
   providers: [],

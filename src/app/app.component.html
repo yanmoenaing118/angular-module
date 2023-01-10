@@ -1,13 +1,21 @@
-<!-- <button (click)="isOn = !isOn">{{isOn ? 'Off' : 'On'}}</button> -->
+<button class="p-3 border"
+(click)="toggleEdit()"
+>
+  Toggle Edit
+</button>
 
-<div class="m-4">
-  <div class="flex gap-4">
-    <button class="p-3 border">
-      update
-    </button>
-    <button class="p-3 border">
-      calledByParent
-    </button>
-  </div>
-  <app-child #ch1></app-child>
+<button class="p-3 border mr-6" (click)="saveMessage()">
+  Save
+</button>
+
+
+<div *ngIf="canEdit; else noEdit">
+  <p class="bg-green-500 text-white">You can edit this message.</p>
 </div>
+
+
+<ng-template #noEdit>
+  <p class="bg-red-500 text-white">This is read only message.</p>
+</ng-template>
+
+<p class="p-3 border" [contentEditable]="canEdit">{{message}}</p>

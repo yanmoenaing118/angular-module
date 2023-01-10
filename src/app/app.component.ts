@@ -1,97 +1,31 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <h1>Hello Angular</h1>
-    <app-child></app-child>
-    <app-child></app-child>
-    <p>
-      App Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-      asperiores deserunt, itaque id vel dicta nihil in cupiditate maiores
-      doloremque, eum earum. Consequatur, minima debitis est expedita provident
-      sequi id?
-    </p>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  encapsulation: ViewEncapsulation.Emulated,
 })
-export class AppComponent {}
+export class AppComponent {
 
-@Component({
-  selector: 'app-child',
-  template: `
-    <h1>Hello Child</h1>
-    <div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui saepe
-        perspiciatis quia tempora architecto! Officia, id! Temporibus sunt
-        quibusdam, repellat vitae accusantium quis libero. Optio,
-        necessitatibus. Animi nam dignissimos iste.
-      </p>
-      <app-nested-child></app-nested-child>
-    </div>
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quis quam
-        saepe earum iure rem temporibus dicta odio veritatis, numquam
-        reprehenderit recusandae laborum, quas et eius odit voluptatum? Esse,
-        ducimus?
-      </p>
-    </div>
-  `,
-  styles: [
-    `
-      p {
-        color: green;
-      }
-    `,
-  ],
-  encapsulation: ViewEncapsulation.None,
-})
-export class ChildApp {}
-
-@Component({
-  selector: 'app-nested-child',
-  template: `
-    <h1>Nested Child Component</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, alias,
-      repudiandae saepe ratione nemo porro perspiciatis nobis, quam deserunt
-      dolores molestiae eum natus qui modi sit voluptatibus perferendis. Ex,
-      voluptates.
-    </p>
-    <app-2nested-child></app-2nested-child>
-  `,
-  styles: [
-    `
-      p {
-        color: red;
-      }
-    `,
-  ],
-  encapsulation: ViewEncapsulation.Emulated,
-})
-export class NestedChildApp {}
-
-@Component({
-  selector: 'app-2nested-child',
-  template: `
-    <h1>
-      2 Level Nested Child Component
-      <h1></h1>
-    </h1>
-  `,
-  styles: [
-    `
-      h1 {
-        color: pink;
-      }
-    `,
-  ],
-})
-export class TwoNestedChildComponent {
+  canEdit: boolean = false;
+  message: string  = "You cannot edit me";
 
 
+  constructor(private logger: LoggerService) {}
+
+  toggleEdit() {
+    this.logger.log('User toggled canEdit')
+    this.canEdit = !this.canEdit;
+    if(this.canEdit) {
+      this.message = "You can edit me"
+    } else {
+      this.message = "You cannot edit me"
+    }
+  }
+
+  saveMessage() {
+    this.logger.log('User save message');
+  }
 
 }
